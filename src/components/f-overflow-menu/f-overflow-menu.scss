@@ -1,0 +1,69 @@
+f-overflow-menu {
+    .f-overflow-menu {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-start;
+      position: relative;
+      //TODO: might need to create var for z-index
+  
+      .toggle {
+        display: flex;
+        align-items: center;
+  
+        f-button {
+          &.in-container {
+            height: 56px;
+          }
+        }
+      }
+  
+      .overflow-items {
+        display: none;
+        position: absolute;
+        z-index: layer(menu)-1;
+        top: 40px;
+        min-width: 250px;
+  
+        &.left {
+          right: 0;
+        }
+  
+        &.right {
+          left: 0;
+        }
+  
+        &.in-container {
+          top: 54px;
+        }
+  
+        &.open {
+          display: inline;
+          box-shadow: boxshadow(large);
+  
+          f-item {
+            --f-item-justification: left;
+            --f-item-padding: var(--spacing-l);
+
+            --f-item-hover-focus-border-left: 4px solid var(--accent-navy-blue);
+            --f-item-hover-focus-background-color: var(--accent-zircon);
+
+            --f-item-disabled-border-left: 4px solid transparent;
+
+            --f-item-selected-border-left: 4px solid var(--accent-navy-blue);
+
+            --f-item-selected-disabled-border-left: 4px solid var(--neutral-mountain-mist);
+
+            &:last-of-type {
+                --f-item-border-bottom: 1px solid transparent;
+            }
+
+            &:focus {
+                --f-item-focus-border-bottom: 1px solid transparent;
+            }
+            }
+        }
+      }
+    }
+  }
+  
+  

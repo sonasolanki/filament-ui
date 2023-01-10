@@ -1,0 +1,30 @@
+:root {
+    --f-avatar-height: 136px;
+    --f-avatar-background-color: var(--core-water-leaf);
+    --f-avatar-text-color: var(--neutral-bokara-gray);
+    --f-avatar-width: 136px;
+}
+
+f-avatar {
+    .f-avatar {
+        height: var(--f-avatar-height);
+        width: var(--f-avatar-width);
+        background-color: var(--f-avatar-background-color);
+        border-radius: 50%;
+        color: var(--f-avatar-text-color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+        .avatar-image {
+            height: var(--f-avatar-height);
+            width: var(--f-avatar-width);
+            border-radius: 50%;
+        }
+
+        h5 {
+            max-width: 90px;
+        }
+    }
+}

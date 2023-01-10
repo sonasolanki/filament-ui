@@ -1,0 +1,25 @@
+@import '../../../node_modules/tippy.js/dist/svg-arrow.css';
+
+f-tooltip {
+    .f-tooltip {
+        f-button {
+            --f-button-padding: 0;
+        }
+
+        f-icon {
+            --f-icon-size: 16px;
+            --f-icon-color: var(--neutral-bokara-gray);
+        }
+    }
+}
+
+.tippy-box[data-theme~='filament-tooltip'] {
+    background-color: var(--neutral-white);
+    color: var(--neutral-bokara-gray);
+    box-shadow: boxshadow(large);
+    padding: var(--spacing-xl);
+
+    & > .tippy-svg-arrow {
+        fill: var(--neutral-white);
+    }
+}

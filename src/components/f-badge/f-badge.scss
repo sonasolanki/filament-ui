@@ -1,0 +1,33 @@
+/**
+* @prop --f-badge-background-color: color of badge background
+* @prop --f-badge-border-color: color of badge border
+* @prop --f-badge-text-color: color of badge text
+*/
+:root {
+    --f-badge-background-color: var(--neutral-black);
+    --f-badge-border-color: var(--neutral-black);
+    --f-badge-border-radius: 50%;
+    --f-badge-display: inline-block;
+    --f-badge-font-size: var(--base-font-size);
+    --f-badge-size: 28px;
+    --f-badge-text-color: var(--neutral-white);
+}
+
+f-badge {
+    display: var(--f-badge-display);
+
+    .f-badge {
+        background-color: var(--f-badge-background-color);
+        border: 1px solid transparent;
+        border-radius: var(--f-badge-border-radius);
+        color: var(--f-badge-text-color);
+        border-color: var(--f-badge-border-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: var(--f-badge-size);
+        height: var(--f-badge-size);
+        font-size: var(--f-badge-font-size);
+        padding: 0;
+    }
+}

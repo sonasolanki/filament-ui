@@ -1,0 +1,21 @@
+:root {
+    --f-modal-button-bar-bg-color: var(--neutral-white);
+    --f-modal-button-bar-spacing: var(--spacing-l) var(--spacing-xl) var(--spacing-xl);
+}
+
+f-modal-button-bar {
+    .f-modal-button-bar {
+        background-color: var(--f-modal-button-bar-bg-color);
+        display: flex;
+        justify-content: flex-start;
+        padding: var(--f-modal-button-bar-spacing);
+
+        f-button {
+            margin-right: var(--spacing-xl);
+
+            &:last-of-type {
+                margin: 0;
+            }
+        }
+    }
+}

@@ -1,0 +1,96 @@
+//boxshadow
+$neutral-bokara-gray: #282828;
+@function boxshadow($size) {
+	@if $size==small {
+		@return 0 0 1px rgba($neutral-bokara-gray, .25),
+		0 0 2px rgba($neutral-bokara-gray, .20),
+		0 0 4px rgba($neutral-bokara-gray, .15),
+		0 0 8px rgba($neutral-bokara-gray, .10),
+		0 0 16px rgba($neutral-bokara-gray, .05);
+    }
+
+	@else if $size==medium {
+		@return 0 0 1px rgba($neutral-bokara-gray, .25),
+		0 0 2px rgba($neutral-bokara-gray, .20),
+		0 0 4px rgba($neutral-bokara-gray, .15),
+		0 0 8px rgba($neutral-bokara-gray, .10),
+		0 0 16px rgba($neutral-bokara-gray, .05),
+		0 0 24px rgba($neutral-bokara-gray, .05);
+
+	}
+
+	@else if $size==large {
+		@return 0 0 2px rgba($neutral-bokara-gray,.07),
+		0 0 4px rgba($neutral-bokara-gray,.07),
+		0 0 8px rgba($neutral-bokara-gray,.07),
+		0 0 16px rgba($neutral-bokara-gray,.07),
+		0 0 32px rgba($neutral-bokara-gray,.07),
+		0 0 64px rgba($neutral-bokara-gray,.07);
+	}
+
+    @warn "The key #{$name} does not exists in the map '$size'";
+	@return null;
+}
+
+//font weights
+$weights: (light: 300, regular: 400, semiBold: 600, bold: 700);
+@function weight($name) {
+	@if map-has-key($weights, $name) {
+		@return map-get($weights, $name);
+	}
+
+	@warn "The key #{$name} does not exists in the map '$weights'";
+	@return null;
+}
+
+//z-index layers
+$layers: (modal: 1000, spinner: 5000, menu: 2000, page: 2, header: 999);
+@function layer($name) {
+	@if map-has-key($layers, $name) {
+		@return map-get($layers, $name);
+	}
+
+	@warn "The key #{$name} does not exists in the map '$layers'";
+	@return null;
+}
+
+//border radius
+@function radius($size) {
+    @if $size == none {
+        @return 0px;
+    }
+
+	@if $size == small {
+        @return 4px;
+    }
+
+    @else if $size==medium {
+        @return 8px;
+    }
+
+    @else if $size==large { //? TODO: should we follow the pixel guidelines
+        @return 10px;
+    }
+
+	@warn "The key #{$size} does not exists in the map '$size'";
+	@return null;
+}
+
+//linear gradients
+@function gradient($color) {
+	@if $color==teal {
+		@return linear-gradient(to right,var(--accent-canary-yellow), var(--core-water-leaf));
+	}
+
+	@else if $color==blue {
+		@return linear-gradient(to right,var(--accent-canary-yellow), var(--tertiary-cornflower-blue));
+	}
+
+	@else if $color==purple {
+		@return linear-gradient(to right,var(--accent-canary-yellow), var(--tertiary-rich-lilac));
+	}
+
+	@else if $color==orange {
+		@return linear-gradient(to right,var(--accent-canary-yellow), var(--accent-pink-orange));
+	}
+}

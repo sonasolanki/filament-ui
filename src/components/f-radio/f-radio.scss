@@ -1,0 +1,94 @@
+:root {
+    --f-radio-label-font-size: var(--small-font-size);
+    
+    --f-radio-background-color: var(--neutral-white);
+    --f-radio-font-color: var(--neutral-black);
+  
+    --f-radio-border-color: var(--border-general);
+    --f-radio-border-style: solid;
+    --f-radio-border-thickness: 1px;
+    
+    --f-radio-hover-background-color: var(--neutral-white);
+    --f-radio-hover-border-color: var(--accent-navy-blue);
+  
+    --f-radio-focus-background-color: var(--neutral-white);
+    --f-radio-focus-border-color: var(--accent-navy-blue);
+
+    --f-radio-selected-border-thickness: 5px;
+    --f-radio-selected-background-color: var(--accent-navy-blue);
+
+    --f-radio-border-error-color: var(--error);
+
+    --f-radio-disabled-border-color: var(--neutral-athens-gray);
+    --f-radio-disabled-background-color: var(--neutral-athens-gray);
+}
+
+//? TODO: do we need inner circle error?
+
+f-radio {
+    .f-radio {
+        input[type='radio'] {
+            outline: none;
+            position: absolute;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+            clip: rect(1px 1px 1px 1px);
+        }
+    
+        input[type='radio']+label {
+            position: relative;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+            font-size: var(--f-radio-label-font-size);
+    
+            &::before {
+                content: '';
+                position: relative;
+                display: inline-block;
+                margin-right: var(--spacing-s);
+                width: 16px;
+                height: 16px;
+                background-color: var(--f-radio-background-color);
+                border-radius: 50%;
+                border: var(--f-radio-border-thickness) var(--f-radio-border-style) var(--f-radio-border-color);
+            }
+        }
+    
+        input[type='radio']:checked+label {
+            &::before {
+                border: var(--f-radio-selected-border-thickness) var(--f-radio-border-style) var(--f-radio-focus-border-color);
+            }
+        }
+    
+        input[type='radio']:hover+label {
+            &::before {
+                border-color: var(--f-radio-hover-border-color);
+            }
+        }
+    
+        input[type='radio']:hover:checked+label {
+            &::before {
+                border-color: var(--f-radio-focus-border-color);
+            }
+        }
+    
+        input[type='radio'][disabled]:hover:checked+label {
+            &::before {
+                border-color: var(--f-radio-disabled-border-color);
+            }
+        }
+    
+        input[type='radio'][disabled]+label{
+            cursor: not-allowed;
+            pointer-events: none;
+    
+            &::before {
+                border-color: var(--f-radio-disabled-border-color);
+            }
+        }
+    }
+}

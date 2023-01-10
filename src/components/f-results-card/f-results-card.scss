@@ -1,0 +1,46 @@
+ :root {
+    --f-results-card-display: inline-block;
+    --f-results-card-height: 220px;
+    --f-results-card-padding: var(--spacing-xxl); //! TODO spacing doesn't make our current spacing.
+    --f-results-card-width: 330px;
+}
+
+f-results-card {
+    display: block;
+
+    .f-results-card {
+        background-color: var(--neutral-white);
+        border: 1px solid var(--neutral-gallery);
+        border-radius: radius(large);
+        box-shadow: boxshadow(small);
+        box-sizing: border-box;
+        display: var(--f-results-card-display);
+        max-height: var(--f-results-card-height);
+        padding: var(--f-results-card-padding);
+        width: var(--f-results-card-width);
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+
+            h5 {
+                margin-bottom: var(--spacing-m);
+            }
+            span {
+                font-size: var(--small-font-size);
+                color: var(--neutral-dove-gray);
+            }
+        }
+
+        .subheader {
+            display: block;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: var(--spacing-l);
+            font-size: var(--small-font-size);
+        }
+    }
+}

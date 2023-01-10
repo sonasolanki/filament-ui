@@ -1,0 +1,119 @@
+:root {
+    --f-loading-border-color: 102, 102, 102; //needs to be an rgb color
+    --f-loading-border-thickness: 2px;
+    --f-loading-size: 16px;
+}
+
+f-loading {
+    .spinner {
+        border-radius: 50%;
+
+        &.small {
+            width: var(--f-loading-size);
+            height: var(--f-loading-size);
+            --f-loading-border-thickness: 2px;
+        }
+
+        &.medium {
+            width: calc(var(--f-loading-size) * 2);
+            height: calc(var(--f-loading-size) * 2);
+            --f-loading-border-thickness: 4px;
+        }
+
+        &.large {
+            width: calc(var(--f-loading-size) * 4);
+            height: calc(var(--f-loading-size) * 4);
+            --f-loading-border-thickness: 8px;
+        }
+
+        &.xl {
+            width: calc(var(--f-loading-size) * 6);
+            height: calc(var(--f-loading-size) * 6);
+            --f-loading-border-thickness: 10px;
+        }
+
+        &.inverted {
+            --f-loading-border-color: 255, 255, 255;
+        }
+
+        border-style: solid;
+        border-width: var(--f-loading-border-thickness);
+        border-color: rgba(var(--f-loading-border-color), 0.2);
+        border-left-color: rgba(var(--f-loading-border-color), 1);
+        position: relative;
+        transform: translateZ(0);
+        animation: rotate 1s infinite linear;
+    }
+
+    .vbar {
+        width: 150px;
+        height: 40px;
+
+        &.small {
+            --f-loading-border-thickness: 2px;
+        }
+
+        &.medium {
+            --f-loading-border-thickness: 4px;
+        }
+
+        &.large {
+            --f-loading-border-thickness: 8px;
+        }
+
+        &.inverted {
+            --f-loading-border-color: 255, 255, 255;
+        }
+
+        > div {
+            background-color: rgba(var(--f-loading-border-color), 1);
+            height: 100%;
+            width: var(--f-loading-border-thickness);
+            display: inline-block;
+            animation: stretch 1.3s infinite ease-in-out;
+            margin-right: var(--spacing-s);
+    
+            &.bar1 {
+                animation-delay: -1.2s;  
+            }
+    
+            &.bar2 {
+                animation-delay: -1.1s;  
+            }
+    
+            &.bar3 {
+                animation-delay: -1.0s;  
+            }
+    
+            &.bar4 {
+                animation-delay: -0.9s;  
+            }
+    
+            &.bar5 {
+                animation-delay: -0.8s;  
+            }
+        }
+    }
+
+    //motion for spin
+    @keyframes rotate {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    //motion for vbar
+    @keyframes stretch {
+        0%, 50%, 100% { 
+            transform: scaleY(0.4);
+        }
+
+        20% { 
+            transform: scaleY(1.0);
+        }
+    }
+}

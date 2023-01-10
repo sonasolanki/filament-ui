@@ -1,0 +1,69 @@
+/**
+ * @prop --f-tab-min-width: minimum width for each tab item (default: 200px)
+ */
+:root {
+    --f-tab-min-width: 200px;
+}
+  
+f-tabs {
+    .f-tabs {
+        display: flex;
+        
+        f-item {
+            position: relative;
+            width: var(--f-tab-min-width, 200px);
+            //TODO: need border radius for hover-focus, selected, selected-disabled
+            --f-item-justification: center;
+
+            --f-item-border-bottom: 2px solid transparent;
+            --f-item-border-left: none;
+
+            --f-item-hover-focus-border-bottom: 2px solid var(--neutral-black);
+            --f-item-hover-focus-border-left: none;
+            --f-item-hover-focus-background-color: none;
+
+            --f-item-disabled-border-bottom: 2px solid var(--neutral-mountain-mist);
+            --f-item-disabled-border-left: none;
+
+            --f-item-selected-border-bottom: 2px solid var(--accent-navy-blue);
+            --f-item-selected-border-left: none;
+
+            --f-item-selected-disabled-border-bottom:  2px solid var(--neutral-mountain-mist);
+            --f-item-selected-disabled-border-left: none;
+        }
+
+        &.vertical {
+            flex-direction: column;
+        
+            f-item {
+                --f-item-justification: start;
+
+                --f-item-border-bottom: 2px solid transparent;
+                --f-item-border-left: 2px solid transparent;
+                --f-item-border-top: 2px solid transparent;
+                --f-item-border-right: 2px solid transparent;
+
+                --f-item-hover-focus-border-bottom: 2px solid var(--border-general);
+                --f-item-hover-focus-border-left: 2px solid var(--border-general);
+                --f-item-hover-focus-border-top: 2px solid var(--border-general);
+                --f-item-hover-focus-border-right: 2px solid var(--border-general);
+                --f-item-hover-focus-background-color: var(--neutral-white);
+
+                --f-item-disabled-border-bottom: 2px solid transparent;
+                --f-item-disabled-border-left: 2px solid transparent;
+                --f-item-disabled-border-top: 2px solid transparent;
+                --f-item-disabled-border-right: 2px solid transparent;
+
+                --f-item-selected-border-bottom: 2px solid transparent;
+                --f-item-selected-border-left: 2px solid transparent;
+                --f-item-selected-border-top: 2px solid transparent;
+                --f-item-selected-border-right: 2px solid transparent;
+
+                --f-item-selected-disabled-border-bottom:  2px solid transparent;
+                --f-item-selected-disabled-border-left: 2px solid transparent;
+                --f-item-selected-disabled-border-top: 2px solid transparent;
+                --f-item-selected-disabled-border-right: 2px solid transparent;
+            }
+        }
+    }
+}

@@ -1,0 +1,145 @@
+/**
+ * @prop --f-modal-content-padding: padding of content inside modal
+ * @prop --f-modal-custom-width: width of modal
+ * @prop --f-modal-margin: margin around modal when positioned at edges of screen
+ */
+ :root {
+    --f-modal-border-radius: 0;
+    --f-modal-content-padding: var(--spacing-l) var(--spacing-xl);
+    --f-modal-custom-width: 800px;
+    --f-modal-custom-height: 800px;
+    --f-modal-margin: 0;
+  }
+
+  f-modal {
+    .f-modal {
+      position: fixed;
+      display: none;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: layer(modal);
+
+      &.visible {
+        display: flex;
+        overflow: auto;
+      }
+  
+      &.center {
+        justify-content: center;
+        align-items: center;
+      }
+
+      &.left {
+        justify-content: flex-start;
+        align-items: center;
+      }
+
+      &.right {
+        justify-content: flex-end;
+        align-items: center;
+      }
+
+      &.top-right {
+        justify-content: flex-end;
+        align-items: flex-start;
+      }
+
+      &.top-left {
+        justify-content: flex-start;
+        align-items: flex-start;
+      }
+
+      &.top {
+        justify-content: center;
+        align-items: flex-start;
+      }
+
+      &.bottom-right {
+        justify-content: flex-end;
+        align-items: flex-end;
+      }
+
+      &.bottom-left {
+        justify-content: flex-start;
+        align-items: flex-end;
+      }
+
+      &.bottom {
+        justify-content: center;
+        align-items: flex-end;
+      }
+      
+      .f-modal-container {
+        background-color: var(--neutral-white);
+        box-shadow: boxshadow(medium);
+        border-radius: var(--f-modal-border-radius);
+        display: flex;
+        flex-direction: column;
+        margin: var(--f-modal-margin);
+        min-height: 100vh;
+        position: relative;
+        overflow: hidden;
+        width: 100vw;
+  
+        @include tablet-portrait-up {
+          min-height: 260px;
+          max-height: calc(100vh * 0.6);
+          --f-modal-margin: var(--spacing-l);
+        }
+  
+        &.small {
+          @include tablet-portrait-up {
+            width: 375px;
+          }
+        }
+  
+        &.medium {
+          @include tablet-portrait-up {
+            width: 480px;
+          }
+        }
+  
+        &.large {
+          @include tablet-portrait-up {
+            width: 648px;
+          }
+        }
+
+        &.custom {
+          @include tablet-portrait-up {
+            width: var(--f-modal-custom-width);
+          }
+        }
+  
+        .f-modal-content {
+          padding: var(--f-modal-content-padding);
+          width: auto;
+          overflow-y: auto;
+          position: relative;
+          overflow: auto;
+          flex: 1;
+
+          &:focus {
+            outline: none;
+          }
+        }
+  
+        &.drawer {
+          width: var(--f-modal-custom-width, 400px);
+          height: 100vh;
+          max-height: 100vh;
+          margin: 0;
+          justify-content: flex-end;
+          f-modal-header {
+            --f-modal-header-bg-color: var(--primary-navy);
+            --f-modal-header-text-color: var(--neutral-white);
+            button {
+              --icon-color: var(--neutral-white);
+            }
+          }
+        }
+      }
+    }
+  }

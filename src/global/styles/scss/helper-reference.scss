@@ -1,0 +1,74 @@
+:root {
+    // colors
+    // primary colours
+    --core-water-leaf: hsl(176, 64%, 75%);
+    --core-tropical-blue: hsl(217, 98%, 88%);
+    --core-pale-lavendar:hsl(270, 94%, 90%);
+
+    // secondary colours
+    --accent-canary-yellow:hsl(57, 100%, 51%);
+    --accent-grenadier: hsl(20, 100%, 40%);
+    --accent-pink-orange: hsl(20, 100%, 70%);
+    --accent-denim: hsl(217, 81%, 45%);
+    --accent-navy-blue: hsl(218, 77%, 52%);
+    --accent-jordy-blue: hsl(218, 76%, 71%);
+    --accent-hawkes-blue: hsl(218, 100%, 93%);
+    --accent-zircon: hsl(220, 100%, 98%);
+
+    // tertiary colours
+    --tertiary-viking: hsl(176, 60%, 62%);
+    --tertiary-cornflower-blue: hsl(217, 99%, 69%);
+    --tertiary-rich-lilac:hsl(284, 59%, 63%);
+    --tertiary-orchid: hsl(292, 61%, 70%);
+
+    // neutral colours
+    --neutral-black: hsl(120, 0%, 16%);
+    --neutral-steel: hsl(113, 0%, 40%);
+    --neutral-dove-gray: hsl(120, 0%, 46%);
+    --neutral-mountain-mist: hsl(115, 0%, 58%);
+    --neutral-athens-gray: hsl(112, 0%, 87%);
+    --neutral-gallery: hsl(0, 0%, 94%);
+    --neutral-white: hsl(106, 100%, 100%);
+
+    // semantic colours
+    --error-background: hsl(359, 81%, 96%);
+    --error-shadow: hsl(0, 83%, 59%);
+    --error: hsl(360, 77%, 44%);
+    --warning-background: hsl(39, 99%, 91%);
+    --warning: hsl(47, 96%, 60%);
+    --success-background: hsl(106, 52%, 92%);
+    --success-shadow: hsl(115, 99%, 34%);
+    --success: hsl(112, 100%, 23%);
+    --info: hsl(217, 81%, 45%);
+    --info-background: hsl(218, 100%, 93%);
+
+    --background-body: var(--neutral-white);
+    --border-general: var(--neutral-dove-gray);
+
+      // typography
+    --base-font-color: var(--neutral-black);
+    --base-font-family: "FS Thrive Elliot Web", Arial, sans-serif;
+    --mono-font-family: "Courier New", Courier, monospace;
+    --small-font-size: 14px;
+    --base-font-size: 16px;
+    --large-font-size: 18px;
+    
+    // anchor
+    --anchor-color: var(--accent-denim);
+
+    // spacing
+    --spacing-xs: 2px;
+    --spacing-s: 4px;
+    --spacing-m: 8px;
+    --spacing-l: 16px;
+    --spacing-xl: 24px;
+    --spacing-xxl: 32px;
+    --spacing-xxxl: 40px;
+    --spacing-xxxxl: 80px;
+
+    // general sizing
+    --container-max-width: 1600px;
+
+    --paragraph-margin-bottom: var(--spacing-m);
+    --paragraph-max-width: 600px;
+}

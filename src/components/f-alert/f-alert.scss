@@ -1,0 +1,81 @@
+/**
+* @prop --f-alert-display: display type
+* @prop --f-alert-min-width: minwidth of alert
+* @prop --f-alert-width: specific width
+*/
+:root {
+    --f-alert-display: inline-flex;
+    --f-alert-min-width: 288px;
+    --f-alert-width: auto;
+}
+
+f-alert {
+    .f-alert {
+        display: var(--f-alert-display, inline-flex);
+        justify-content: flex-start;
+        align-items: center;
+        border: none;
+        padding: var(--spacing-l) var(--spacing-xxl) var(--spacing-l) var(--spacing-l);
+        min-width: var(--f-alert-min-width, 300px);
+        width: var(--f-alert-width, auto);
+        position: relative;
+
+        .text {
+            font-size: var(--small-font-size);
+            margin-left: var(--spacing-l);
+        }
+
+        &.in-container {
+            width: 100%;
+        }
+
+        &.n-naked {
+            background-color: var(--neutral-gallery);
+
+            f-icon {
+                --f-icon-color: var(--neutral-black);
+            }
+        }
+
+        &.n-info {
+            background-color: var(--info-background);
+
+            f-icon {
+                --f-icon-color: var(--info);
+            }
+        }
+
+        &.n-warning {
+            background-color: var(--warning-background);
+
+            f-icon {
+                --f-icon-color: var(--warning);
+            }
+        }
+
+        &.n-error {
+            background-color: var(--error-background);
+
+            f-icon {
+                --f-icon-color: var(--error);
+            }
+        }
+
+        &.n-success {
+            background-color: var(--success-background);
+
+            f-icon {
+                --f-icon-color: var(--success);
+            }
+        }
+
+        f-button.dismiss-close {    
+            position: absolute;
+            right: 0;
+
+            f-icon {
+                --f-icon-color: var(--neutral-bokara-gray);
+            }
+        }
+    }
+}

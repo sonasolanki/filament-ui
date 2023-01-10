@@ -1,0 +1,16 @@
+/**
+ * @prop --f-icon-color: Color of the icon
+ * @prop --f-icon-size: Size of the icon
+ */
+ :root {
+    --f-icon-color: var(--neutral-black);
+    --f-icon-size: 16px;
+  }
+  
+  f-icon {
+    span {
+          color: var(--f-icon-color);
+          font-size: var(--f-icon-size);
+      }
+  }
+  

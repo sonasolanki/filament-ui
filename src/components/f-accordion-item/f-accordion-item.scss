@@ -1,0 +1,68 @@
+/**
+ * @prop --f-accordion-content-padding: internal padding for content slots
+ */
+ :root {
+    --f-accordion-border-bottom: 2px solid transparent;
+    --f-accordion-background-color-open: var(--accent-zircon);
+    --f-accordion-background-color: var(--neutral-white);
+    --f-accordion-border-bottom-open: 2px solid var(--accent-navy-blue);
+    --f-accordion-content-padding: var(--spacing-m) var(--spacing-m) var(--spacing-xxl) var(--spacing-m);
+    --f-accordion-focus-border-color: var(--accent-navy-blue);
+    --f-accordion-font-color: var(--neutral-black);
+    --f-accordion-hover-background-color: var(--neutral-white);
+    --f-accordion-hover-border: 2px solid var(--neutral-black);
+    --f-accordion-item-display: inline-flex;
+  }
+  
+f-accordion-item {
+    .f-accordion-item {
+        button {
+            background-color: var(--f-accordion-background-color);
+            border-radius: 0;
+            color: var(--f-accordion-font-color);
+            display: var(--f-accordion-item-display);
+            font-weight: weight(regular);
+            width: 100%;
+            padding: var(--spacing-l);
+            border-bottom: var(--f-accordion-border-bottom);
+
+            f-icon {
+                margin-left: auto;
+
+                &.open {
+                    transform: rotate(180deg);
+                }
+            }
+
+            &.open {
+                background-color: var(--f-accordion-background-color-open);
+                border-bottom: var( --f-accordion-border-bottom-open);
+                font-weight: weight(bold);
+                z-index: layer(page);
+            }
+
+            &:focus {
+                outline: none;
+
+                &::before {
+                    border-color: transparent;
+                }
+            }
+
+            &:hover {
+                background-color: var(--f-accordion-hover-background-color);
+                border-bottom: var(--f-accordion-hover-border);
+            }
+        }
+
+        .accordion-content {
+            display: none;
+            padding: var(--f-accordion-content-padding);
+            border-bottom: 1px solid var(--neutral-athens-gray);
+
+            &.open {
+                display: block;
+            }
+        }
+    }
+}

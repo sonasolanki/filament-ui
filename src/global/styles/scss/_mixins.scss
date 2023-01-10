@@ -1,0 +1,93 @@
+//for all helper classes
+@mixin helperClass($list, $class, $property) {
+    @each $item in $list {
+        @if $class== "" {
+            .#{$item} {
+                #{$property}: #{$item};
+            }
+        } @else {
+            .#{$class}-#{$item} {
+                #{$property}: #{$item};
+            }
+        }
+    }
+}
+
+//spacing mixin
+$spacing-xs: 2px;
+$spacing-s: 4px;
+$spacing-m: 8px;
+$spacing-l: 16px;
+$spacing-xl: 24px;
+$spacing-xxl: 32px;
+$spacing-xxxl: 40px;
+$spacing-xxxxl: 80px;
+$spacing: (none: 0, xs: $spacing-xs, s: $spacing-s, m: $spacing-m, l: var(--spacing-l), xl: $spacing-xl, xxl: $spacing-xxl, xxxl: $spacing-xxxl, xxxxl: $spacing-xxxxl);
+@mixin spacing($attribute: "margin", $prefix: "-") {
+    @each $name, $value in $spacing {
+        &#{$prefix}#{$name} {
+            #{$attribute}: $value;
+        }
+    }
+
+    $newattribute: $attribute + "-top";
+    @each $name, $value in $spacing {
+        &t#{$prefix}#{$name} {
+            #{$newattribute}: $value;
+        }
+    }
+
+    $newattribute: $attribute + "-right";
+    @each $name, $value in $spacing {
+        &r#{$prefix}#{$name} {
+            #{$newattribute}: $value;
+        }
+    }
+
+    $newattribute: $attribute + "-bottom";
+    @each $name, $value in $spacing {
+        &b#{$prefix}#{$name} {
+            #{$newattribute}: $value;
+        }
+    }
+
+    $newattribute: $attribute + "-left";
+    @each $name, $value in $spacing {
+        &l#{$prefix}#{$name} {
+            #{$newattribute}: $value;
+        }
+    }
+}
+
+@mixin singleLineText() {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+//breakpoint mixin
+//! if mobile first approach is used, mobile-only mixin should not be needed
+//TODO: get breakpoints for each breakpoint
+@mixin mobile-only {
+    @media (max-width: 599px) {
+        @content;
+    }
+}
+
+@mixin tablet-portrait-up {
+    @media (min-width: 600px) {
+        @content;
+    }
+}
+
+@mixin tablet-landscape-up {
+    @media (min-width: 900px) {
+        @content;
+    }
+}
+
+@mixin desktop-up {
+    @media (min-width: 1200px) {
+        @content;
+    }
+}

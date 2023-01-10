@@ -1,0 +1,27 @@
+f-checkbox-group {
+    .f-checkbox-group {
+        fieldset {
+            f-checkbox {
+                margin: 0 var(--spacing-l) 0 0;
+    
+                &:last-of-type {
+                    margin: 0;
+                }
+            }
+
+            &.vertical {
+                flex-direction: column;
+
+                f-checkbox {
+                    margin: 0 0 var(--spacing-l) 0;
+        
+                    &:last-of-type {
+                        margin: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+

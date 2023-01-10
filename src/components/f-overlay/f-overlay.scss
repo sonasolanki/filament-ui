@@ -1,0 +1,16 @@
+:root {
+    --f-overlay-color: 255, 255, 255; //mountain-mist @ 50% opacity
+	--f-overlay-opacity: 0.9;
+    --f-overlay-position: fixed;
+}
+
+f-overlay {
+    .f-overlay {
+        background-color: rgba(var(--f-overlay-color), var(--f-overlay-opacity));
+        position: var(--f-overlay-position);
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+}

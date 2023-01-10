@@ -1,0 +1,32 @@
+// :root {
+//     // define scss vars here
+//     // i.e. --f-radio-group-width
+// }
+
+f-radio-group {
+    .f-radio-group {
+        fieldset {
+            f-radio {
+                margin: 0 var(--spacing-l) 0 0;
+    
+                &:last-of-type {
+                    margin: 0;
+                }
+            }
+
+            &.vertical {
+                flex-direction: column;
+
+                f-radio {
+                    margin: 0 0 var(--spacing-l) 0;
+        
+                    &:last-of-type {
+                        margin: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+

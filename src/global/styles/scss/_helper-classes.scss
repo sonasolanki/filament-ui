@@ -1,0 +1,90 @@
+// Helper Classes are based on tailwindcss
+// https://tailwindcss.com/docs/installation/
+// follow KISS principle (keep it simple stupid) & YAGNI principle (you aren't gonna need it)
+
+// typography
+// text alignment
+$text-align: ('left', 'right', 'center', 'justify', 'initial', 'inherit');
+@include helperClass($text-align, 'text-align', 'text-align');
+
+// text decoration
+$text-decoration: ('underline', 'line-through', 'no-underline');
+@each $item in $text-decoration {
+    .text-#{$item} {
+        @if $item == 'no-underline' {
+            text-decoration: none;
+        } 
+        @else {
+            text-decoration: #{$item};
+        }
+    }
+}
+
+// text transform
+$text-transform: ('uppercase', 'lowercase', 'capitalize');
+@each $item in $text-transform {
+    .text-#{$item} {
+        text-transform: #{$item};
+    }
+}
+
+// vertical alignment
+$vertical-alignment-list: ('baseline', 'top', 'middle', 'bottom', 'text-top', 'text-bottom');
+@include helperClass($vertical-alignment-list, 'v-align', 'vertical-align');
+
+// layout
+$display-list: ('block', 'inline-block', 'inline', 'flex', 'inline-flex', 'table', 'table-row', 'table-cell', 'hidden');
+@include helperClass($display-list, '', 'display');
+
+$position-list:('static', 'relative', 'fixed', 'absolute', 'sticky');
+@include helperClass($position-list, 'pos', 'position');
+
+$float-list: ('left', 'right', 'none');
+@include helperClass($float-list, 'float', 'float');
+
+$object-list: ('contain', 'cover', 'fill', 'none', 'scale-down');
+@include helperClass($object-list, 'object', 'object-fit');
+
+// Flex box
+$flex-direction: ('column', 'row');
+@include helperClass($flex-direction, 'flex', 'flex-direction');
+    
+$align-items: ('stretch', 'flex-start', 'center', 'flex-end', 'baseline');
+@include helperClass($align-items, 'items', 'align-items');
+
+$justify-content: ('flex-start', 'center', 'flex-end', 'space-between', 'space-around');
+@include helperClass($justify-content, 'justify', 'justify-content');
+
+// Spacing
+.m {
+    @include spacing();
+}
+
+.p {
+    @include spacing('padding');
+}
+
+// Tables
+$table-list: ('auto', 'fixed');
+@include helperClass($table-list, 'table', 'table-layout');
+    
+$borders: ('all', 'none', 'top', 'right', 'bottom', 'left');
+@each $item in $borders {
+    .b-#{$item} {
+        @if $item == 'all' {
+            border: 1px solid var(--border-general);
+        } 
+        @else if $item == 'none' {
+            border: none;
+        }
+        @else {
+            border-#{$item}: 1px solid var(--border-general);
+        } 
+    }
+}
+    
+$curors: ('auto', 'default', 'pointer', 'wait', 'text', 'move', 'not-allowed');
+@include helperClass($curors, 'cursor', 'cursor');
+    
+$font-styles: ('italic', 'normal', 'oblique', 'inherit', 'initial');
+@include helperClass($font-styles, 'fs', 'font-style');

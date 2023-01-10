@@ -1,0 +1,28 @@
+/**
+ * @prop --f-data-card-display: display type for data card component (default: 'inline-block')
+ * @prop --f-data-card-height: height of the data card component (default: 100%)
+ * @prop --f-data-card-padding: padding of the data card component (default: var(--spacing-xxxl))
+ * @prop --f-data-card-width: width of the data card component (default: 100%)
+ */
+:root {
+    --f-data-card-display: inline-block;
+    --f-data-card-height: 100%;
+    --f-data-card-padding: var(--spacing-xxxl);
+    --f-data-card-width: 100%;
+}
+
+f-data-card {
+    display: block;
+    background: var(--neutral-white) no-repeat top left;
+
+    .f-data-card {
+        border: 1px solid var(--neutral-gallery);
+        border-radius: radius(large);
+        box-shadow: boxshadow(medium);
+        box-sizing: border-box;
+        display: var(--f-data-card-display);
+        height: var(--f-data-card-height);
+        padding: var(--f-data-card-padding);
+        width: var(--f-data-card-width);
+    }
+}

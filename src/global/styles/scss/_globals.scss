@@ -1,0 +1,74 @@
+// global definitions
+// by sona solanki
+
+body {
+    color: var(--base-font-color);
+    background-color: var(--background-body);
+
+    &.no-scroll {
+        overflow: hidden;
+    }
+}
+
+main {
+    padding: var(--spacing-l);
+}
+
+a {
+    color: var(--anchor-color);
+    text-decoration: none;
+
+    &:focus {
+        outline: none;
+        text-decoration: underline;
+    }
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+p,
+ul,
+ol,
+pre,
+blockquote {
+    margin: 0;
+    margin-bottom: var(--spacing-l);
+}
+
+ul ul,
+ol ol,
+ul ol,
+ol ul {
+    margin-bottom: var(--spacing-xs);
+}
+
+hr {
+    border: 1px solid var(--border-general);
+    margin: -1px 0;
+}
+
+b,
+i,
+strong,
+em,
+small,
+code {
+    line-height: 0;
+}
+
+sub,
+sup {
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sup {
+    top: -0.5em;
+}
+
+sub {
+    bottom: -0.25em;
+}

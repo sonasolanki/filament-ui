@@ -1,0 +1,50 @@
+/**
+* @prop --f-lozenge-background-color: color of lozenge background
+* @prop --f-lozenge-border-color: color of lozenge border
+* @prop --f-lozenge-text-color: color of lozenge text
+*/
+:root {
+    --f-lozenge-background-color: var(--neutral-black);
+    --f-lozenge-border-color: var(--neutral-black);
+    --f-lozenge-border-radius: 50%;
+    --f-lozenge-display: inline-block;
+    --f-lozenge-font-size: var(--base-font-size);
+    --f-lozenge-height: 28px;
+    --f-lozenge-min-width: 28px;
+    --f-lozenge-text-color: var(--neutral-white);
+}
+
+f-lozenge {
+    display: var(--f-lozenge-display);
+    .f-lozenge {
+        background-color: var(--f-lozenge-background-color);
+        border: 1px solid transparent;
+        color: var(--f-lozenge-text-color);
+        border-color: var(--f-lozenge-border-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 1.5;
+        min-width: var(--f-lozenge-min-width);
+        height: var(--f-lozenge-height);
+        font-size: var(--f-lozenge-font-size);
+        word-wrap: nowrap;
+        flex-direction: row;
+        padding: var(--spacing-s) var(--spacing-m);
+        border-radius: radius(medium); // ? should this be large or not
+
+        f-icon {    
+            --f-icon-color: currentColor;
+            margin-left: var(--spacing-m);
+        }
+
+        &.icon-left {
+            flex-direction: row-reverse;
+
+            f-icon {
+                margin-right: var(--spacing-m);
+                margin-left: 0;
+            }
+        }
+    }
+}

@@ -1,0 +1,107 @@
+/**
+* @prop --f-textarea-min-height: min-height of textarea
+* @prop --f-textarea-min-width: min-width of textarea
+*/
+:root {
+    --f-textarea-label-font-size: 12px;
+    --f-textarea-label-display: block;
+    
+    --f-textarea-font-color: var(--neutral-black);
+
+    --f-textarea-min-height: 137px;
+    --f-textarea-min-width: 975px;
+
+    --f-textarea-background-color: var(--neutral-white);
+    --f-textarea-border-radius: 0;
+    --f-textarea-border-thickness: 1px;
+    --f-textarea-border-style: solid;
+    --f-textarea-border-color: var(--border-general);
+
+    --f-textarea-hover-background-color: var(--neutral-white);
+    --f-textarea-hover-border-color: var(--accent-navy-blue);
+    
+    --f-textarea-focus-background-color: var(--neutral-white);
+    --f-textarea-focus-border-color: var(--accent-navy-blue);
+
+    --f-textarea-border-error-thickness: 1px;
+    --f-textarea-border-error-color: var(--error);
+
+    --f-textarea-helper-text-font-size: 12px; //TODO: set font size
+
+    --f-textarea-disabled-textarea-background-color: var(--neutral-gallery);
+    --f-textarea-disabled-textarea-border-color: transparent;
+    --f-textarea-disabled-textarea-font-color: var(--neutral-steel);
+}
+
+f-textarea {
+    .f-textarea {
+        display: flex;
+        flex-direction: column;
+
+        label {
+            display: block;
+            font-size: var(--f-textarea-label-font-size);
+            margin-bottom: var(--spacing-m);
+        }
+
+        textarea {
+            background-color: var(--f-textarea-background-color);
+            border-radius: var(--f-textarea-border-radius);
+            border: var(--f-textarea-border-thickness) var(--f-textarea-border-style) var(--f-textarea-border-color);
+            color: var(--f-textarea-font-color);
+            min-width: var(--f-textarea-min-width);
+            min-height: var(--f-textarea-min-height);
+            outline: none;
+            padding: var(--spacing-l);
+            resize: none;
+            width: 100%;
+
+            &:hover {
+                border-color: var(--f-textarea-hover-border-color);
+                background-color: var(--f-textarea-hover-background-color);
+            }
+
+            &:focus {
+                border-color: var(--f-textarea-focus-border-color);
+                background-color: var(--f-textarea-focus-background-color);
+            }
+
+            &:disabled, [disabled]{
+                cursor: not-allowed;
+                background-color: var(--f-textarea-disabled-textarea-background-color);
+                color: var(--f-textarea-disabled-textarea-font-color);
+                pointer-events: none;
+                border-color: var(--f-textarea-disabled-textarea-border-color);
+            }
+
+        }
+
+        &.has-error {
+            textarea {
+                border: var(--f-textarea-border-error-thickness) var(--f-textarea-border-style) var(--f-textarea-border-error-color);
+            }
+        }
+
+        .helper-text, .error-container {
+            font-size: var(--f-textarea-helper-text-font-size);
+            margin-top: var(--spacing-m);
+            display: flex;
+            align-items: center;
+            display: inline-block;
+        }
+
+        .error-container {
+            color: var(--f-textarea-border-error-color);
+
+            span {
+                margin-bottom: var(--spacing-xs);
+                display: inline-block;
+            }
+
+            f-icon {
+                --f-icon-color: var(--f-textarea-border-error-color);
+                margin-right: var(--spacing-m);
+            }
+        }   
+    }
+}

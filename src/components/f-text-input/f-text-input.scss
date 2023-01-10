@@ -1,0 +1,155 @@
+:root {
+    --f-text-input-label-font-size: 12px; //TODO: set font size
+    
+    --f-text-input-background-color: var(--neutral-white);
+    --f-text-input-font-color: var(--neutral-black);
+    --f-text-input-height-standard: 56px;
+
+    --f-text-input-border-thickness: 1px;
+    --f-text-input-border-style: solid;
+    --f-text-input-border-color: var(--border-general);
+
+    --f-text-input-border: var(--f-text-input-border-thickness) var(--f-text-input-border-style);
+
+    --f-text-input-placeholder-color: var(--border-general);
+    --f-text-input-placeholder-font-style: normal;
+
+    --f-text-input-hover-background-color: var(--neutral-white);
+    --f-text-input-hover-border-color: var(--accent-navy-blue);
+    --f-text-input-hover-placeholder-color: var(--neutral-black);
+
+    --f-text-input-focus-background-color: var(--neutral-white);
+    --f-text-input-focus-border-color: var(--accent-navy-blue);
+    --f-text-input-focus-placeholder-color: var(--neutral-black);
+
+    --f-text-input-border-error-thickness: 1px;
+    --f-text-input-border-error-color: var(--error);
+
+    --f-text-input-helper-text-font-size: 12px; //TODO: set font size
+
+    --f-text-input-disabled-background-color: var(--neutral-gallery);
+    --f-text-input-disabled-border-color: transparent;
+    --f-text-input-disabled-font-color: var(--neutral-steel);
+
+    --f-text-input-width: 100%
+}
+
+//TODO: motion for border-color and background-color like this: 0.8s cubic-bezier(.65,0,.35,1)
+//TODO: spacing on transforms aren't aligned with spacing
+//TODO: need to override styles for some input types (search, number, file etc)
+//TODO: potential icon in input (search, ssn, lock (securtiy))
+
+f-text-input {
+    .f-text-input {
+        display: flex;
+        flex-flow: column-reverse;
+
+        input[type='text'],
+        input[type='password'],
+        input[type='number'],
+        input[type='file'],
+        input[type='search'],
+        input[type='tel'],
+        input[type='email'],
+        input[type='date'],
+        input[type='month'],
+        input[type='week'],
+        input[type='datetime'],
+        input[type='time'],
+        input[type='datetime-local'],
+        input[type='url'] {
+            font-size: var(--base-font-size);
+            border: var(--f-text-input-border);
+            border-color: var(--f-text-input-border-color);
+            border-radius: radius(none);
+            padding: 24px var(--spacing-m) 16px var(--spacing-l);
+            cursor: text;
+            outline: none;
+            background-color: var(--f-text-input-background-color);
+            color: var(--f-text-input-font-color);
+            height: var(--f-text-input-height-standard);
+            width: var(--f-text-input-width, 100%);
+            //remove numbers arrows
+            -moz-appearance: textfield;
+            &::-webkit-outer-spin-button, &::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+            //set x for clear on type search
+            &::-webkit-search-cancel-button{
+                position: relative;
+                right: 0;  
+                -webkit-appearance: none;
+                height: 16px;
+                width: 16px;
+                background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23777'><path d='M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z'/></svg>");
+            }
+
+            &:placeholder-shown + label {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                transform-origin: left bottom;
+                transform: translate(16px, 42px) scale(1.5);
+            }
+
+            &::placeholder {
+                opacity: 0;
+                transition: inherit;
+            }
+
+            &:focus, &:hover {
+                border-color: var(--f-text-input-focus-border-color);
+                background-color: var(--f-text-input-focus-background-color);
+
+                &::placeholder {
+                    opacity: 0;
+                }
+            }
+
+            &:not(:placeholder-shown) + label, &:focus + label {    
+                transform: translate(16px, 24px) scale(1);
+                cursor: pointer;
+            }
+
+            &:disabled, [disabled] {
+                background-color: var(--f-text-input-disabled-background-color);
+                border-color: var(--f-text-input-disabled-border-color);
+                color: var(--f-text-input-disabled-font-color);
+                cursor: not-allowed;
+                pointer-events: none;
+            }
+
+            &.has-error {
+                border: var(--f-text-input-border-error-thickness) var(--f-text-input-border-style) var(--f-text-input-border-error-color);
+            }
+        }
+
+        label {
+            font-size: var(--f-text-input-label-font-size);
+        }
+
+        .helper-text, .error-container {
+            order: -1;
+            font-size: var(--f-text-input-helper-text-font-size);
+            margin-top: var(--spacing-m);
+            display: flex;
+            align-items: center;
+            display: inline-block;
+        }
+
+        .error-container {
+            color: var(--f-text-input-border-error-color);
+
+            span {
+                margin-bottom: var(--spacing-xs);
+                display: inline-block;
+            }
+
+            f-icon {
+                --f-icon-color: var(--f-text-input-border-error-color);
+                margin-right: var(--spacing-m);
+            }
+        }   
+    }
+}
